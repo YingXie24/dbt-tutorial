@@ -1,15 +1,8 @@
-Welcome to your new dbt project!
-
-### Using the starter project
-
-Try running the following commands:
-- dbt run
-- dbt test
-
-
-### Resources:
-- Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
-- Check out [Discourse](https://discourse.getdbt.com/) for commonly asked questions and answers
-- Join the [chat](https://community.getdbt.com/) on Slack for live discussions and support
-- Find [dbt events](https://events.getdbt.com) near you
-- Check out [the blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices
+# Design decisions:
+- Create new views in the src folder where columns are renamed to what is seen in LDM
+- Recreate submission view (in which folder?) to have PARENT_RISK_ID. (Need to check with Alex as some things do not make sense)
+- In DV stage:
+    - LOAD_DATETIME = CURRENT_TIMESTAMP() function 
+        - Every time dbtrun/dbtbuild the column gets refreshed because it is a view (Do we want to materialise it as a table?)
+    - EFFECTIVE_FROM = SOURCE_EVENT_TIMESTAMP column
+    -  HASHDIFF columns contain attributes as well as EFFECTIVE_FROM. No Business Key.
