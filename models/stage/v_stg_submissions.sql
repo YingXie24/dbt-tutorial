@@ -1,20 +1,19 @@
 {{ config(materialized='view') }}
 
 {%- set yaml_metadata -%}
-source_model: submission_seed
+source_model: src_submissions
 derived_columns: 
     SOURCE: "!SEND_WB_SFG"
     LOAD_DATETIME: CURRENT_TIMESTAMP()::TIMESTAMP_NTZ
     EFFECTIVE_FROM: SOURCE_EVENT_TIMESTAMP
 hashed_columns:
     SUBMISSION_HK: 
-        -ID
+        -PARENT_RISK_ID
         -VERSION_NUMBER
     SUBMISSION_HASHDIFF: 
         is_hashdiff: true
         columns:
-            - RISK_TYPE
-            - EFFECTIVE_FROM
+            - TRANSACTION_TYPE
 {%- endset -%}
 
 
