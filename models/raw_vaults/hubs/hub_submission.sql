@@ -6,7 +6,6 @@ source_model:
 src_pk: SUBMISSION_HK
 src_nk:
     - PARENT_RISK_ID
-    - VERSION_NUMBER
 src_ldts: LOAD_DATETIME
 src_source: SOURCE
 {%- endset -%}

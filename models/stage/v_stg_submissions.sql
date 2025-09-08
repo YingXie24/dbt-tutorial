@@ -5,15 +5,18 @@ source_model: raw_submissions
 derived_columns: 
     SOURCE: "!SEND_WB_SFG"
     LOAD_DATETIME: CURRENT_TIMESTAMP()::TIMESTAMP_NTZ
-    EFFECTIVE_FROM: SOURCE_EVENT_TIMESTAMP
+    EFFECTIVE_FROM: "SOURCE_EVENT_TIMESTAMP"
 hashed_columns:
     SUBMISSION_HK: 
         -PARENT_RISK_ID
-        -VERSION_NUMBER
     SUBMISSION_HASHDIFF: 
         is_hashdiff: true
         columns:
-            - TRANSACTION_TYPE
+            - "SEQUENCE"
+            - "RISK_ID"
+            - "VERSION_NUMBER"
+            - "TRANSACTION_TYPE"
+            - "POLICY_STATUS"
 {%- endset -%}
 
 
