@@ -1,7 +1,7 @@
 {{ config(materialized='view') }}
 
 {%- set yaml_metadata -%}
-source_model: src_submissions
+source_model: raw_submissions
 derived_columns: 
     SOURCE: "!SEND_WB_SFG"
     LOAD_DATETIME: CURRENT_TIMESTAMP()::TIMESTAMP_NTZ
