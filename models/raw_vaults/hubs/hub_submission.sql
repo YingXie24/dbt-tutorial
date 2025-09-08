@@ -5,7 +5,7 @@ source_model:
     - v_stg_submissions
 src_pk: SUBMISSION_HK
 src_nk:
-    - PARENT_RISK_ID
+    - RISK_ID
 src_ldts: LOAD_DATETIME
 src_source: SOURCE
 {%- endset -%}

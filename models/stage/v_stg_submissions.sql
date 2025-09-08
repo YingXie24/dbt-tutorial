@@ -8,15 +8,16 @@ derived_columns:
     EFFECTIVE_FROM: "SOURCE_EVENT_TIMESTAMP"
 hashed_columns:
     SUBMISSION_HK: 
-        -PARENT_RISK_ID
+        -"RISK_ID"
     SUBMISSION_HASHDIFF: 
         is_hashdiff: true
         columns:
             - "SEQUENCE"
-            - "RISK_ID"
             - "VERSION_NUMBER"
-            - "TRANSACTION_TYPE"
+            - "PARENT_RISK_ID"
             - "POLICY_STATUS"
+            - "TRANSACTION_TYPE"
+
 {%- endset -%}
 
 
